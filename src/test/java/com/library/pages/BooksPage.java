@@ -1,0 +1,70 @@
+package com.library.pages;
+
+import com.library.utils.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+
+public class BooksPage extends BasePage {
+
+    @FindBy(tagName = "h1")
+    private WebElement pageTitleElement;
+
+    @FindBy(xpath = "//table/tbody/tr")
+    public List<WebElement> allRows;
+
+    @FindBy(tagName = "input")
+    public WebElement search;
+
+    @FindBy(css = "[href='tpl/add-book.html']")
+    public WebElement addBook;
+
+    @FindBy(name = "name")
+    public WebElement bookName;
+
+    @FindBy(name = "isbn")
+    public WebElement isbn;
+
+    @FindBy(name = "year")
+    public WebElement year;
+
+    @FindBy(xpath = "(//input[@type='text'])[4]")
+    public WebElement author;
+
+    @FindBy(id = "description")
+    public WebElement description;
+
+    @FindBy(id = "book_categories")
+    public WebElement categoryElement;
+
+    @FindBy(xpath = "//a[contains(@onclick,'Books.borrow_book')]")
+    public WebElement borrowBookBtn;
+
+    @FindBy(xpath = "//i[contains(@class,'fa fa-angle-right')]")
+    public WebElement nextBtn;
+
+    @FindBy(linkText = "Return Book")
+    public List<WebElement> returnBookBtn;
+
+    public WebElement editBook(String book) {
+        String xpath = "//td[3][.='" + book + "']/../td/a";
+        return Driver.getDriver().findElement(By.xpath(xpath));
+    }
+
+    public Select mainCategoryList() {
+        return new Select(categoryElement);
+    }
+
+    public String getPageTitleText(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return pageTitleElement.getText().trim();
+    }
+
+}
