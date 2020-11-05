@@ -1,6 +1,8 @@
 package com.library.step_definitions;
 
 
+import com.library.pages.BooksPage;
+import com.library.pages.LoginPage;
 import com.library.utils.ConfigurationReader;
 import com.library.utils.Driver;
 import io.cucumber.java.en.Given;
@@ -10,7 +12,10 @@ import org.junit.Assert;
 
 public class LoginStepDefinition {
 
-//    instance = object
+ LoginPage loginPage = new LoginPage();
+ BooksPage booksPage = new BooksPage();
+
+
 
 
 }

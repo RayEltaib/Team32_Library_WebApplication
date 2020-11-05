@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         glue = "com/library/step_definitions",
-        features = "src/resources/features",
-        dryRun = false,
-        tags = "@Login and @BorrowBook"
+        features = "src/test/resources/features",
+        dryRun = true,
+        tags = "@Login"
 )
 public class Cucumber_Runner {
 }
