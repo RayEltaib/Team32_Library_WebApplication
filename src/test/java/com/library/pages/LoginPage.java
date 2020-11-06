@@ -17,19 +17,20 @@ public class LoginPage extends BasePage {
     public WebElement emailElement;
 
     @FindBy(id = "inputPassword")
-    public WebElement passowrdElement;
+    public WebElement passwordElement;
 
     @FindBy(tagName = "button")
     public WebElement signIn;
 
 
     public void login() {
-        BrowserUtils.waitForVisibility(this.emailElement,5);
+
+        BrowserUtils.waitForVisibility(this.emailElement,20);
         String email = ConfigurationReader.getProperty("email");
         String password = ConfigurationReader.getProperty("password");
 
         this.emailElement.sendKeys(email);
-        this.passowrdElement.sendKeys(password, Keys.ENTER);
+        this.passwordElement.sendKeys(password, Keys.ENTER);
 
     }
 
