@@ -13,30 +13,28 @@ import org.junit.Assert;
 
 public class LoginStepDefinition {
 
- LoginPage loginPage = new LoginPage();
- BasePage booksPage = new BooksPage();
+   LoginPage loginPage = new LoginPage();
+   BasePage booksPage = new BooksPage();
 
- @Given("user is on login page")
- public void user_is_on_login_page() {
-  Driver.getDriver().get(ConfigurationReader.getProperty("url"));
- }
-
-
-
- @When("user logs in")
- public void user_logs_in() {
-  loginPage.login();
- }
+   @Given("user is on login page")
+   public void user_is_on_login_page() {
+    Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+   }
 
 
- @Then("user should see Library page title")
- public void user_should_see_library_page_title() {
-   String ExpectedTitle = "Login - Library";
-   String ActualTitle=Driver.getDriver().getTitle();
-   Assert.assertEquals("Title is wrong.",ActualTitle,ExpectedTitle);
- }
+
+   @When("user logs in")
+   public void user_logs_in() {
+    loginPage.login();
+   }
 
 
+   @Then("user should see Library page title")
+   public void user_should_see_library_page_title() {
+     String ExpectedTitle = "Login - Library";
+     String ActualTitle=Driver.getDriver().getTitle();
+     Assert.assertEquals("Title is wrong.",ActualTitle,ExpectedTitle);
+   }
 
 
 }
