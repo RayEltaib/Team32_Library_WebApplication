@@ -29,8 +29,8 @@ public class LoginPage extends BasePage {
         String email = ConfigurationReader.getProperty("email");
         String password = ConfigurationReader.getProperty("password");
 
-        this.emailElement.sendKeys(email);
-        this.passwordElement.sendKeys(password, Keys.ENTER);
+       emailElement.sendKeys(email);
+       passwordElement.sendKeys(password, Keys.ENTER);
 
     }
 
